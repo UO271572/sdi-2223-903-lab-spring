@@ -1,4 +1,4 @@
-package com.uniovi.sdi2223903labspring;
+package com.uniovi.notaneitor.sdi2223903labspring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
