@@ -1,4 +1,4 @@
-package com.uniovi.notaneitor.sdi2223903labspring;
+package com.uniovi.notaneitor;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

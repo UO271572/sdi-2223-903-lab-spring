@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Sdi2223903LabSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="sdi-2223-903-lab-spring" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="com.uniovi.notaneitor.sdi2223903labspring.Sdi2223903LabSpringApplication" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.uniovi.notaneitor.Sdi2223903LabSpringApplication" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <method v="2">
       <option name="Make" enabled="true" />
