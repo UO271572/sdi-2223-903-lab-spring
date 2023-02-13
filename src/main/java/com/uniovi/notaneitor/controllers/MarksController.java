@@ -24,7 +24,7 @@ public class MarksController {
     @RequestMapping("/mark/list")
     public String getList(Model model)
     {
-        model.addAttribute(marksService.getMarks());
+        model.addAttribute("markList",marksService.getMarks());
         return "/mark/list";
     }
 
