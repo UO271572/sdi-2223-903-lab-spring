@@ -27,6 +27,6 @@ public class ProffesorValidator implements Validator{
             //if(teacherRepeatedDni != null && !teacherRepeatedDni.equals(prof)){
               //  errors.rejectValue("dni", "Error.edit.dni.duplicate");}
             if (proffesorService.getProffesor(prof.getId()) != null) {
-                errors.rejectValue("dni", "Error.edit.dni.duplicate");}
+                errors.rejectValue("id", "Error.edit.id.duplicate");}
         }
     }
