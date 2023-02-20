@@ -2,9 +2,12 @@ package com.uniovi.notaneitor.controllers;
 
 import com.uniovi.notaneitor.entities.Proffesor;
 import com.uniovi.notaneitor.services.ProffesorService;
+import com.uniovi.notaneitor.validators.ProffesorValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -12,6 +15,8 @@ public class ProffesorController {
 
     @Autowired
     private ProffesorService proffesorService;
+    @Autowired
+    private ProffesorValidator proffesorValidator;
 
     @RequestMapping("/proffesor/list")
     public String getList(Model model){
@@ -30,16 +35,22 @@ public class ProffesorController {
         return "redirect:/proffesor/list";
     }
 
-    @RequestMapping("/proffesor/edit/{id}")
+    @RequestMapping(value = "/proffesor/edit/{id}", method = RequestMethod.GET)
     public String getEdit(Model model,@PathVariable Long id){
         model.addAttribute("prof",proffesorService.getProffesor(id));
         return "proffesor/edit";
     }
 
     @RequestMapping(value="/proffesor/edit/{id}", method=RequestMethod.POST)
-    public String setEdit(@ModelAttribute Proffesor prof, @PathVariable Long id)
+    public String setEdit(@Validated Proffesor prof, @PathVariable Long id, BindingResult result)
     {
-        prof.setId(id);
+        System.out.println("salida 1");
+        proffesorValidator.validate(prof,result);
+        if(result.hasErrors()){
+            System.out.println("salida 2");
+            return "proffesor/edit";
+        }
+        System.out.println("salida 3");
         proffesorService.addProffesor(prof);
         return "redirect:/proffesor/details/"+id;
     }

@@ -2,8 +2,16 @@ package com.uniovi.notaneitor.entities;
 
 import com.sun.source.doctree.SeeTree;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class Proffesor {
 
+    @Id
+    @GeneratedValue
     private long id;
     private String dni;
     private String name;
@@ -12,6 +20,14 @@ public class Proffesor {
 
 
     public Proffesor(){}
+
+    public Proffesor(String dni, String name, String apellidos, String categoria) {
+        super();
+        this.dni = dni;
+        this.name = name;
+        this.apellidos = apellidos;
+        this.categoria = categoria;
+    }
 
     public Proffesor(long id, String dni, String name, String apellidos, String categoria) {
         this.id = id;
@@ -71,4 +87,14 @@ public class Proffesor {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Proffesor proffesor = (Proffesor) o;
+        return Objects.equals(dni, proffesor.dni);
+    }
+
+
 }
