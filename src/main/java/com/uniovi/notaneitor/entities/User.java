@@ -21,6 +21,7 @@ public class User {
     private Set<Mark> marks;
 
 
+
     public User(String dni, String name, String lastName) {
         super();
         this.dni = dni;
@@ -57,6 +58,12 @@ public class User {
     }
     public String getPassword() {
         return password;
+    }
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
     }
     public void setPassword(String password) {
         this.password = password;
