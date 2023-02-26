@@ -14,7 +14,7 @@ import java.util.List;
 public interface MarksRepository extends CrudRepository<Mark, Long> {
     @Modifying
     @Transactional
-    @Query("SELECT r FROM Mark r WHERE r.user = ?1 ORDER BY r.id ASC")
+    @Query("UPDATE Mark SET resend =?1 WHERE id=?2")
     void updateResend(Boolean resend, Long id);
 
     Page<Mark> findAll(Pageable pageable);
