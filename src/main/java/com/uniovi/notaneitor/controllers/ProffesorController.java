@@ -45,6 +45,7 @@ public class ProffesorController {
     public String setEdit(@Validated Proffesor prof, @PathVariable Long id, BindingResult result)
     {
         System.out.println("salida 1");
+        //prof.setId(id); añadir el id al profesor o cambiar los parametros que le llegan
         proffesorValidator.validate(prof,result);
         if(result.hasErrors()){
             System.out.println("salida 2");

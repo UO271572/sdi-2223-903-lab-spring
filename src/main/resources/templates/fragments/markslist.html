@@ -1,0 +1,8 @@
+<tr th:each="mark : ${markList}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <td scope="row" th:text="${mark.id}"> 1</td>
+    <td th:text="${mark.description}"> Ejercicio 1</td>
+    <td th:text="${mark.score}">10</td>
+    <td><a sec:authorize="hasRole('ROLE_PROFESSOR')" th:href="${'/mark/details/' + mark.id}">detalles</a></td>
+    <td><a sec:authorize="hasRole('ROLE_PROFESSOR')" th:href="${'/mark/edit/' + mark.id}">modificar</a></td>
+    <td><a sec:authorize="hasRole('ROLE_PROFESSOR')" th:href="${'/mark/delete/' + mark.id}">eliminar</a></td>
+</tr>
